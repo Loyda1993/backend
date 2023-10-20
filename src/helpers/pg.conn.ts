@@ -6,6 +6,7 @@ const dbHost = process.env.DB_HOST;
 const dbUser = process.env.DB_USER;
 const dbName = process.env.DB_DATABASE;
 const dbPassword = process.env.DB_PASSWORD;
+const dbSSL = process.env.DB_SSL;
 
 const pool = new Pool({
     user: dbUser,
@@ -13,7 +14,7 @@ const pool = new Pool({
     database: dbName,
     password: dbPassword,
     port: port, 
-    ssl: true
+    ssl: dbSSL
 });
 
 pool.connect()
