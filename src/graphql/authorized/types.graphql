@@ -1,0 +1,140 @@
+scalar Date
+    
+type MyType {
+    created: Date
+}
+
+type User {
+    codigo: Int!
+    nombre: String!
+    correo: String!
+    activo: Boolean
+    password: String!
+    token: String!
+    vencimiento: String!
+    inicio: String!
+    punto_venta: [PointSale!]!
+    roles: [TypeRol!]!
+}
+
+type Rol{
+    codigo: Int!
+    nombre: String!
+    descripcion: String!
+    activo: Boolean!
+}
+
+type Product{
+    codigo: Int!
+    nombre: String!
+    descripcion: String!
+    activo: Boolean!
+    tipo_producto: Int!
+}
+
+type TypeProduct{
+    codigo: Int!
+    nombre: String!
+    descripcion: String!
+    es_producto: Boolean!
+    activo: Boolean!
+    orden: Int!
+    productos: [Product!]
+}
+
+type ProductDetail{
+    codigo_punto_venta: Int!
+    codigo: Int!
+    nombre: String!
+    descripcion: String!
+    precio: Float!
+    activo: Boolean!
+    tipo_producto: Int!
+}
+
+type PointSale{
+    codigo: Int!
+    nombre: String!
+    descripcion: String!
+    activo: Boolean!
+    cantidad: Int!
+    productos: [ProductDetail!]
+}
+
+type ProductPointSale{
+    codigo: Int!
+    producto: Int!
+    punto_venta: Int!
+    precio: Float!
+    activo: Boolean!
+}
+
+type Journal{
+    codigo_dia: Int!
+    codigo_punto_venta: Int!
+    fecha: Date!
+    abierto: Boolean!
+}
+
+type JournalDetail{
+    codigo: Int!, 
+    codigo_dia: Int!, 
+    codigo_producto: Int!, 
+    cantidad: Int!, 
+    cantidad_personas: Int!, 
+    descripcion: String!   
+}
+
+type JournalDetailForDay{
+    codigo_detalle: Int!,
+    codigo_producto: Int!, 
+    nombre_producto: String!,
+    cantidad: Int!, 
+    descripcion: String!,
+    precio: Float!, 
+    tipo_producto: Int!
+}
+
+type TypeRol{
+    codigo: Int!, 
+    nombre: String!,
+    activo: Boolean!
+}
+
+type RepJournal{
+    codigo: Int!
+    nombre: String!
+    descripcion: String!
+    activo: Boolean!
+    cantidad: Int!
+    fecha: Date!
+    tipo_producto: [RepTypeProduct!]
+    fondo: [RepFondo!]
+}
+
+type RepFondo{
+    fon_codigo: Int!
+    fon_nombre: String!
+    fon_porcentaje: Float!
+    fon_es_fondo: Boolean!
+}
+
+type RepTypeProduct{
+    codigo: Int!
+    nombre: String!
+    descripcion: String!
+    es_producto: Boolean!
+    activo: Boolean!
+    es_costo: Boolean!
+    orden: Int!
+    productos: [RepJournalDetail!]
+}
+
+type RepJournalDetail{
+    codigo_producto: Int!
+    nombre_producto: String!
+    precio: Float!
+    cantidad: Int!
+    total: Float!
+}
+

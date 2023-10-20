@@ -1,0 +1,19 @@
+type Query {
+    getAllUsers: [User!]!
+    getAllRols: [Rol!]!
+
+    getAllTypeProduct: [TypeProduct!]!
+    getTypeProductById(codigo: Int!): [TypeProduct]!
+
+    getAllProduct: [Product!]!
+    getProductById(codigo: Int!): [Product]!
+
+    getAllPointSale: [PointSale!]!
+    
+    
+    getAllProductPointSale: [ProductPointSale!]!
+    getProductPointSaleById(codigo: Int!): [ProductPointSale]!
+    getFindByPointSaleId(codigo: Int!): [ProductPointSale]!
+
+    getAllTypeRol: [TypeRol!]!
+}

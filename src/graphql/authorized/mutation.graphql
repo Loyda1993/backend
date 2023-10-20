@@ -1,0 +1,118 @@
+type Mutation {
+    deleteSession(id: Int!): String
+    createUser( nombre: String!, 
+                correo: String!,
+                contrasena: String!,
+                rol: Int!
+            ):  User!
+
+    updatePasswordUser(
+                codigo: Int!,
+                contrasena: String!,
+                valcontrasena: String!
+            ): User!
+
+    updateUser(
+        codigo: Int!,
+        nombre: String!,
+        correo: String!,
+        estado: Boolean,
+        rol: Int!
+    ): User!
+
+    createPointSaleUser(
+        codigo: Int!,
+        puntos_venta: [String!]!
+    ):[PointSale!]!
+
+    createRolUser(
+        codigo: Int!,
+        roles: [String!]!
+    ):[TypeRol!]!
+
+    deleteUser(
+        codigo: Int!
+    ): User!
+
+    deleteTypeProductById(codigo: Int!): TypeProduct!
+    createTypeProduct(nombre: String!,
+                        descripcion: String!,
+                        es_producto: Boolean!,
+                        activo: Boolean!): TypeProduct!
+    updateTypeProduct(codigo: Int!,
+                        nombre: String!,
+                        descripcion: String!,
+                        es_producto: Boolean!,
+                        activo: Boolean!): TypeProduct!
+
+    deleteProductById(codigo: Int!): Product!
+    createProduct(nombre: String!,
+                        descripcion: String!,
+                        activo: Boolean!,
+                        tipo_producto: Int!): Product!
+    updateProduct(codigo: Int!,
+                        nombre: String!,
+                        descripcion: String!,
+                        activo: Boolean!,
+                        tipo_producto: Int!): Product!
+
+    deletePointSaleById(codigo: Int!): PointSale!
+    createPointSale(nombre: String!,
+                        descripcion: String!,
+                        activo: Boolean!,
+                        cantidad: Int!): PointSale!
+                        
+    updatePointSale(codigo: Int!,
+                        nombre: String!,
+                        descripcion: String!,
+                        activo: Boolean!,
+                        cantidad: Int!): PointSale!
+                        
+    getPointSaleById(codigo: Int!): [PointSale]!
+
+    deleteProductPointSaleById(codigo: Int!): ProductPointSale!
+
+    createProductPointSale(producto: Int!,
+                        punto_venta: Int!,
+                        precio: Float!,
+                        activo: Boolean!): ProductPointSale!
+
+    updateProductPointSale(codigo: Int!,
+                        producto: Int!,
+                        punto_venta: Int!,
+                        precio: Float!,
+                        activo: Boolean!): ProductPointSale!
+
+    createJournal(
+        codigo_punto_venta: Int!
+    ): Journal!
+
+    createJournalDetail( 
+        codigo_dia: Int!, 
+        codigo_producto: Int!, 
+        cantidad: Int!, 
+        cantidad_personas: Int!, 
+        descripcion: String!
+    ): JournalDetail!
+
+    deleteJournalDetail( 
+        codigo_detalle: Int!,
+        codigo_dia: Int!
+    ): JournalDetail!
+
+    editJournalDetail( 
+        codigo_detalle: Int!,
+        codigo_dia: Int!,
+        cantidad: Int!, 
+        descripcion: String!
+    ): JournalDetail!
+
+    getJournalDetailForDay(
+        codigo: Int!
+        ): [JournalDetailForDay!]!
+
+    getReportJournal(codigo_punto_venta: Int!, 
+                    fecha_inicio: String!, 
+                    fecha_fin: String!
+                ): [RepJournal!]!
+}
