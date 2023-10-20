@@ -1,12 +1,18 @@
 import { Pool } from "pg";
+require('dotenv').config();
 
-// postgres://root:7dpdYQTSZjTTz0WO0emX7xXLNZEPcdb5@dpg-ckoui2oujous73b95480-a.oregon-postgres.render.com/app_venta
+const port = process.env.PORT || 5432;
+const dbHost = process.env.DB_HOST;
+const dbUser = process.env.DB_USER;
+const dbName = process.env.DB_DATABASE;
+const dbPassword = process.env.DB_PASSWORD;
+
 const pool = new Pool({
-    user: 'root',
-    host: 'dpg-ckoui2oujous73b95480-a.oregon-postgres.render.com',
-    database: 'app_venta',
-    password: '7dpdYQTSZjTTz0WO0emX7xXLNZEPcdb5',
-    port: 5432, 
+    user: dbUser,
+    host: dbHost,
+    database: dbName,
+    password: dbPassword,
+    port: port, 
     ssl: true
 });
 
