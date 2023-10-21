@@ -14,7 +14,7 @@ const pool = new Pool({
     database: dbName,
     password: dbPassword,
     port: port, 
-    ssl: dbSSL
+    ssl: dbSSL === "true" ? true : false,
 });
 
 pool.connect()
