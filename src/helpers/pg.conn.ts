@@ -1,7 +1,7 @@
 import { Pool } from "pg";
 require('dotenv').config();
 
-const port = process.env.PORT || 5432;
+const port = 5432;
 const dbHost = process.env.DB_HOST;
 const dbUser = process.env.DB_USER;
 const dbName = process.env.DB_DATABASE;
@@ -15,6 +15,9 @@ const pool = new Pool({
     password: dbPassword,
     port: port, 
     ssl: dbSSL === "true" ? true : false,
+    max: 20,
+    idleTimeoutMillis: 30000,
+    connectionTimeoutMillis: 20000,
 });
 
 pool.connect()
