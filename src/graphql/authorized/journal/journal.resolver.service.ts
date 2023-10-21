@@ -18,7 +18,7 @@ const journalResolve = {
                 [
                     {type: MiddlewareType.AUTH},
                     {type: MiddlewareType.ACL, 
-                        roles: ['product_view']}
+                        roles: ['report_view']}
                 ],
                 ctx
             )
@@ -29,7 +29,7 @@ const journalResolve = {
             middlewareCheck([
                 {type: MiddlewareType.AUTH},
                 {type: MiddlewareType.ACL,
-                    roles: ['product_create']}
+                    roles: ['detail_diary_create']}
             ], ctx)
 
             const result = await journalMutationService.createJournal(params);
@@ -39,7 +39,7 @@ const journalResolve = {
             middlewareCheck([
                 {type: MiddlewareType.AUTH},
                 {type: MiddlewareType.ACL,
-                    roles: ['product_create']}
+                    roles: ['detail_diary_create']}
             ], ctx)
 
             const result = await journalMutationService.createJournalDetail(params);
@@ -50,7 +50,7 @@ const journalResolve = {
             middlewareCheck([
                 {type: MiddlewareType.AUTH},
                 {type: MiddlewareType.ACL,
-                    roles: ['product_create']}
+                    roles: ['detail_diary_view']}
             ], ctx)
 
             const result = await journalMutationService.getJournalDetailForDay(params);
@@ -61,7 +61,7 @@ const journalResolve = {
             middlewareCheck([
                 {type: MiddlewareType.AUTH},
                 {type: MiddlewareType.ACL,
-                    roles: ['product_create']}
+                    roles: ['detail_diary_delete']}
             ], ctx)
 
             const result = await journalMutationService.deleteJournalDetail(params);
@@ -72,7 +72,7 @@ const journalResolve = {
             middlewareCheck([
                 {type: MiddlewareType.AUTH},
                 {type: MiddlewareType.ACL,
-                    roles: ['product_create']}
+                    roles: ['detail_diary_delete']}
             ], ctx)
 
             const result = await journalMutationService.editJournalDetail(params);
