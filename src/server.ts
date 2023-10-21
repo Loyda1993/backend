@@ -6,7 +6,7 @@ import AuthMiddleware from "./middlewares/auth/auth.middleware";
 import { generateMiddlewareGraphql } from "./middlewares/graphql-express/graphql-express.middleware";
 
 (async () => {
-    const PORT = 8000;
+    const PORT = process.env.PORT || 8000;
     const API_PATH = '/graphql';
 
     const app = express();
@@ -22,8 +22,17 @@ import { generateMiddlewareGraphql } from "./middlewares/graphql-express/graphql
         ],
     );
 
+    app.post("/",(req, res) => {
+        res.send("Hola Mundo - metodo post")
+    });
+    app.get('/',
+        (req, res) => {
+            res.send("Hola Mundo")
+        }
+    );
+    
     app.listen(PORT, () => {
-        console.log(`Graphql server started on http://localhost:${PORT}${API_PATH}`);
+        console.log(`Graphql server started on ${PORT}${API_PATH}`);
     });
 
 })();
